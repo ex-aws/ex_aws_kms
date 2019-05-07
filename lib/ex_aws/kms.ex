@@ -196,10 +196,13 @@ defmodule ExAws.KMS do
     |> Map.merge(%{
           "Action"  => "GenerateDataKey",
           "Version" => @version,
-          "KeyId"   => key_id,
-          "KeySpec" => opts[:key_spec] || "AES_256"})
+          "KeyId"   => key_id})
 
-    request(:generate_data_key, query_params)
+    if !Map.has_key?(query_params, "KeySpec") and !Map.has_key?(query_params, "NumberOfBytes") do
+      request(:generate_data_key, Map.put(query_params, "KeySpec", "AES_256"))
+    else
+      request(:generate_data_key, query_params)
+    end
   end
 
   @doc "Generate a data key without plaintext"
