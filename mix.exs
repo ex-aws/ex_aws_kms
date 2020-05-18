@@ -4,7 +4,7 @@ defmodule ExAws.KMS.Mixfile do
   def project do
     [
       app: :ex_aws_kms,
-      version: "2.0.0",
+      version: "2.1.0",
       elixir: "~> 1.5",
       elixirc_paths: elixirc_paths(Mix.env),
       start_permanent: Mix.env == :prod,
@@ -34,7 +34,7 @@ defmodule ExAws.KMS.Mixfile do
   defp ex_aws() do
     case System.get_env("AWS") do
       "LOCAL" -> {:ex_aws, path: "../ex_aws"}
-      _ -> {:ex_aws, "~> 2.0"}
+      _ -> {:ex_aws, "~> 2.1"}
     end
   end
 end
