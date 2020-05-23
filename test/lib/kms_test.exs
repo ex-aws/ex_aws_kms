@@ -247,7 +247,6 @@ defmodule ExAws.KMSTest do
                                          "KeyId"             => "key-id",
                                          "EncryptionContext" => %{"key" => "value"},
                                          "GrantTokens"       => ["token"],
-                                         "KeySpec"           => "AES_128",
                                          "NumberOfBytes"     => 16},
                                  headers: [{"x-amz-target", "TrentService.GenerateDataKey"},
                                            {"content-type", "application/x-amz-json-1.0"}],
@@ -255,7 +254,7 @@ defmodule ExAws.KMSTest do
                                  parser: _,
                                  path: "/",
                                  service: :kms,
-                                 stream_builder: nil} = ExAws.KMS.generate_data_key("key-id", encryption_context: %{ "key" => "value" }, grant_tokens: ["token"], key_spec: "AES_128", number_of_bytes: 16)
+                                 stream_builder: nil} = ExAws.KMS.generate_data_key("key-id", encryption_context: %{ "key" => "value" }, grant_tokens: ["token"], number_of_bytes: 16)
   end
 
   test "GenerateDataKeyWithoutPlaintext" do
