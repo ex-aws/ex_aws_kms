@@ -1,6 +1,9 @@
 # ExAws.KMS
+[![Build Status](https://secure.travis-ci.org/ex-aws/ex_aws_kms.png?branch=master)](https://travis-ci.org/ex-aws/ex_aws_kms)
+[![Hex pm](http://img.shields.io/hexpm/v/ex_aws_kms.svg?style=flat)](https://hex.pm/packages/ex_aws_kms)
+[![API Docs](https://img.shields.io/badge/api-docs-lightgreen.svg?style=flat)](https://hexdocs.pm/ex_aws_kms)
 
-Service module for https://github.com/ex-aws/ex_aws
+Service module for [KMS](https://aws.amazon.com/kms/) support in https://github.com/ex-aws/ex_aws
 
 ## Installation
 
