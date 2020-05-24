@@ -13,8 +13,8 @@ along with `:ex_aws` and your preferred JSON codec / http client
 ```elixir
 def deps do
   [
-    {:ex_aws, "~> 2.0"},
-    {:ex_aws_kms, "~> 2.0"},
+    {:ex_aws, "~> 2.1"},
+    {:ex_aws_kms, "~> 2.1"},
     {:poison, "~> 3.0"},
     {:hackney, "~> 1.9"},
   ]
