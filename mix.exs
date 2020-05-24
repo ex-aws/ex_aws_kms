@@ -1,14 +1,23 @@
 defmodule ExAws.KMS.Mixfile do
   use Mix.Project
 
+  @version "2.1.0"
+
   def project do
     [
       app: :ex_aws_kms,
-      version: "2.1.0",
+      version: @version,
       elixir: "~> 1.5",
       elixirc_paths: elixirc_paths(Mix.env()),
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+      description: "ExAws.KMS service package",
+      package: package(),
+      source_url: "https://github.com/ex-aws/ex_aws_kms",
+      docs: [
+        source_ref: "v#{@version}",
+        formatters: ["html", "epub"]
+      ]
     ]
   end
 
@@ -19,6 +28,20 @@ defmodule ExAws.KMS.Mixfile do
   def application do
     [
       extra_applications: [:logger]
+    ]
+  end
+
+  def docs do
+  end
+
+  def package do
+    [
+      files: ["lib", "mix.exs", "README*", "LICENSE*", "CHANGELOG*"],
+      maintainers: ["Artem Kay"],
+      licesnes: ["MIT"],
+      links: %{
+        "GitHub" => "https://github.com/ex-aws/ex_aws_kms"
+      }
     ]
   end
 
