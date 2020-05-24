@@ -31,9 +31,6 @@ defmodule ExAws.KMS.Mixfile do
     ]
   end
 
-  def docs do
-  end
-
   def package do
     [
       files: ["lib", "mix.exs", "README*", "LICENSE*", "CHANGELOG*"],
