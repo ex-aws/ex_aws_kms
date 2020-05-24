@@ -35,7 +35,7 @@ defmodule ExAws.KMS.Mixfile do
     [
       files: ["lib", "mix.exs", "README*", "LICENSE*", "CHANGELOG*"],
       maintainers: ["Artem Kay"],
-      licesnes: ["MIT"],
+      licenses: ["MIT"],
       links: %{
         "GitHub" => "https://github.com/ex-aws/ex_aws_kms"
       }
