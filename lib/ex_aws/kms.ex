@@ -494,6 +494,8 @@ defmodule ExAws.KMS do
   end
 
   @doc "Retires a grant"
+  def retire_grant(opts)
+
   @type retire_grant_opts :: [
           {:grant_id, binary}
           | {:grant_token, binary}
@@ -503,10 +505,9 @@ defmodule ExAws.KMS do
   def retire_grant(opts) when is_list(opts) do
     opts
     |> normalize_opts
-    |> _retire_grant
+    |> do_retire_grant
   end
 
-  @doc "Retires a grant"
   @spec retire_grant(grant_token :: binary) :: ExAws.Operation.JSON.t()
   def retire_grant(grant_token) when is_binary(grant_token) do
     query_params =
@@ -515,7 +516,7 @@ defmodule ExAws.KMS do
         "GrantToken" => grant_token
       })
 
-    _retire_grant(query_params)
+    do_retire_grant(query_params)
   end
 
   @doc "Retires a grant"
@@ -528,10 +529,10 @@ defmodule ExAws.KMS do
         "KeyId" => key_id
       })
 
-    _retire_grant(query_params)
+    do_retire_grant(query_params)
   end
 
-  defp _retire_grant(opts) do
+  defp do_retire_grant(opts) do
     query_params =
       opts
       |> Map.merge(%{
