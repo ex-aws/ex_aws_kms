@@ -1,6 +1,7 @@
 # Changelog for v2.x
 
-## Unreleased
+## 2.2.0 (2020-11-15)
+
   * Add `Sign`, `Verify` and `GetPublicKey` operations
 
 ## 2.1.1 (2020-11-01)
