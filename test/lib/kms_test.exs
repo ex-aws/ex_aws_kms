@@ -470,6 +470,26 @@ defmodule ExAws.KMSTest do
            } = ExAws.KMS.get_parameters_for_import("key-id")
   end
 
+  test "GetPublicKey" do
+    assert %ExAws.Operation.JSON{
+             before_request: nil,
+             data: %{
+               "Action" => "GetPublicKey",
+               "KeyId" => "key-id",
+               "Version" => @version
+             },
+             headers: [
+               {"x-amz-target", "TrentService.GetPublicKey"},
+               {"content-type", "application/x-amz-json-1.0"}
+             ],
+             http_method: :post,
+             parser: _,
+             path: "/",
+             service: :kms,
+             stream_builder: nil
+           } = ExAws.KMS.get_public_key("key-id")
+  end
+
   test "ImportKeyMaterial" do
     assert %ExAws.Operation.JSON{
              before_request: nil,
@@ -761,6 +781,28 @@ defmodule ExAws.KMSTest do
            } = ExAws.KMS.schedule_key_deletion("key-id", 256)
   end
 
+  test "Sign" do
+    assert %ExAws.Operation.JSON{
+             before_request: nil,
+             data: %{
+               "Action" => "Sign",
+               "Message" => "message",
+               "KeyId" => "key-id",
+               "SigningAlgorithm" => "signing-algorithm",
+               "Version" => @version
+             },
+             headers: [
+               {"x-amz-target", "TrentService.Sign"},
+               {"content-type", "application/x-amz-json-1.0"}
+             ],
+             http_method: :post,
+             parser: _,
+             path: "/",
+             service: :kms,
+             stream_builder: nil
+           } = ExAws.KMS.sign("message", "key-id", "signing-algorithm")
+  end
+
   test "UpdateAlias" do
     assert %ExAws.Operation.JSON{
              before_request: nil,
@@ -801,5 +843,28 @@ defmodule ExAws.KMSTest do
              service: :kms,
              stream_builder: nil
            } = ExAws.KMS.update_key_description("description", "key-id")
+  end
+
+  test "Verify" do
+    assert %ExAws.Operation.JSON{
+             before_request: nil,
+             data: %{
+               "Action" => "Verify",
+               "Message" => "message",
+               "Signature" => "signature",
+               "KeyId" => "key-id",
+               "SigningAlgorithm" => "signing-algorithm",
+               "Version" => @version
+             },
+             headers: [
+               {"x-amz-target", "TrentService.Verify"},
+               {"content-type", "application/x-amz-json-1.0"}
+             ],
+             http_method: :post,
+             parser: _,
+             path: "/",
+             service: :kms,
+             stream_builder: nil
+           } = ExAws.KMS.verify("message", "signature", "key-id", "signing-algorithm")
   end
 end

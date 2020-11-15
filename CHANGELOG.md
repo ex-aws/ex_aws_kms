@@ -1,5 +1,8 @@
 # Changelog for v2.x
 
+## Unreleased
+  * Add `Sign`, `Verify` and `GetPublicKey` operations
+
 ## 2.1.1 (2020-11-01)
 
   * Fixed the `@doc` compiler warning
