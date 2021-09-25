@@ -184,10 +184,10 @@ defmodule ExAws.KMS do
           {:encryption_context, map}
           | {:grant_tokens, list(binary)}
         ]
-  @spec encrypt(key_id :: binary, plaintext :: binary) :: ExAws.Operation.JSON.t()
-  @spec encrypt(key_id :: binary, plaintext :: binary, opts :: encrypt_opts) ::
+  @spec encrypt(plaintext :: binary, key_id :: binary) :: ExAws.Operation.JSON.t()
+  @spec encrypt(plaintext :: binary, key_id :: binary, opts :: encrypt_opts) ::
           ExAws.Operation.JSON.t()
-  def encrypt(key_id, plaintext, opts \\ []) when is_list(opts) do
+  def encrypt(plaintext, key_id, opts \\ []) when is_list(opts) do
     query_params =
       opts
       |> normalize_opts
