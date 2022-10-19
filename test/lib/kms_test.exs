@@ -343,6 +343,94 @@ defmodule ExAws.KMSTest do
              )
   end
 
+  test "GenerateDataKeyPair" do
+    assert %ExAws.Operation.JSON{
+             before_request: nil,
+             data: %{"Action" => "GenerateDataKeyPair", "Version" => @version, "KeyId" => "key-id"},
+             headers: [
+               {"x-amz-target", "TrentService.GenerateDataKeyPair"},
+               {"content-type", "application/x-amz-json-1.0"}
+             ],
+             http_method: :post,
+             parser: _,
+             path: "/",
+             service: :kms,
+             stream_builder: nil
+           } = ExAws.KMS.generate_data_key_pair("key-id")
+
+    assert %ExAws.Operation.JSON{
+             before_request: nil,
+             data: %{
+               "Action" => "GenerateDataKeyPair",
+               "Version" => @version,
+               "KeyId" => "key-id",
+               "EncryptionContext" => %{"key" => "value"},
+               "GrantTokens" => ["token"],
+               "KeyPairSpec" => "RSA_3072"
+             },
+             headers: [
+               {"x-amz-target", "TrentService.GenerateDataKeyPair"},
+               {"content-type", "application/x-amz-json-1.0"}
+             ],
+             http_method: :post,
+             parser: _,
+             path: "/",
+             service: :kms,
+             stream_builder: nil
+           } =
+             ExAws.KMS.generate_data_key_pair("key-id",
+               encryption_context: %{"key" => "value"},
+               grant_tokens: ["token"],
+               key_pair_spec: "RSA_3072"
+             )
+  end
+
+  test "GenerateDataKeyPairWithoutPlaintext" do
+    assert %ExAws.Operation.JSON{
+             before_request: nil,
+             data: %{
+               "Action" => "GenerateDataKeyPairWithoutPlaintext",
+               "Version" => @version,
+               "KeyId" => "key-id"
+             },
+             headers: [
+               {"x-amz-target", "TrentService.GenerateDataKeyPairWithoutPlaintext"},
+               {"content-type", "application/x-amz-json-1.0"}
+             ],
+             http_method: :post,
+             parser: _,
+             path: "/",
+             service: :kms,
+             stream_builder: nil
+           } = ExAws.KMS.generate_data_key_pair_without_plaintext("key-id")
+
+    assert %ExAws.Operation.JSON{
+             before_request: nil,
+             data: %{
+               "Action" => "GenerateDataKeyPairWithoutPlaintext",
+               "Version" => @version,
+               "KeyId" => "key-id",
+               "EncryptionContext" => %{"key" => "value"},
+               "GrantTokens" => ["token"],
+               "KeyPairSpec" => "RSA_3072"
+             },
+             headers: [
+               {"x-amz-target", "TrentService.GenerateDataKeyPairWithoutPlaintext"},
+               {"content-type", "application/x-amz-json-1.0"}
+             ],
+             http_method: :post,
+             parser: _,
+             path: "/",
+             service: :kms,
+             stream_builder: nil
+           } =
+             ExAws.KMS.generate_data_key_pair_without_plaintext("key-id",
+               encryption_context: %{"key" => "value"},
+               grant_tokens: ["token"],
+               key_pair_spec: "RSA_3072"
+             )
+  end
+
   test "GenerateDataKeyWithoutPlaintext" do
     assert %ExAws.Operation.JSON{
              before_request: nil,
