@@ -7,7 +7,7 @@ defmodule ExAws.KMS do
 
   @version "2014-11-01"
 
-  @doc "Canel a key deletion"
+  @doc "Cancel a key deletion"
   @spec cancel_key_deletion(key_id :: binary) :: ExAws.Operation.JSON.t()
   def cancel_key_deletion(key_id) do
     query_params = %{
