@@ -226,6 +226,57 @@ defmodule ExAws.KMS do
     else
       request(:generate_data_key, query_params)
     end
+          end
+
+  @doc "Generate a data key pair"
+  @type generate_data_key_pair_opts :: [
+          {:encryption_context, map}
+          | {:grant_tokens, list(binary)}
+          | {:key_pair_spec, binary}
+        ]
+  @spec generate_data_key_pair(key_id :: binary) :: ExAws.Operation.JSON.t()
+  @spec generate_data_key_pair(
+          key_id :: binary,
+          opts :: generate_data_key_pair_opts
+        ) :: ExAws.Operation.JSON.t()
+  def generate_data_key_pair(key_id, opts \\ []) when is_list(opts) do
+    query_params =
+      opts
+      |> normalize_opts
+      |> Map.merge(%{
+        "Action" => "GenerateDataKeyPair",
+        "Version" => @version,
+        "KeyId" => key_id,
+        "KeyPairSpec" => opts[:key_pair_spec] || "RSA_4096"
+      })
+
+    request(:generate_data_key_pair, query_params)
+  end
+
+  @doc "Generate a data key pair without plaintext"
+  @type generate_data_key_pair_without_plaintext_opts :: [
+          {:encryption_context, map}
+          | {:grant_tokens, list(binary)}
+          | {:key_pair_spec, binary}
+        ]
+  @spec generate_data_key_pair_without_plaintext(key_id :: binary) ::
+          ExAws.Operation.JSON.t()
+  @spec generate_data_key_pair_without_plaintext(
+          key_id :: binary,
+          opts :: generate_data_key_pair_without_plaintext_opts
+        ) :: ExAws.Operation.JSON.t()
+  def generate_data_key_pair_without_plaintext(key_id, opts \\ []) when is_list(opts) do
+    query_params =
+      opts
+      |> normalize_opts
+      |> Map.merge(%{
+        "Action" => "GenerateDataKeyPairWithoutPlaintext",
+        "Version" => @version,
+        "KeyId" => key_id,
+        "KeyPairSpec" => opts[:key_pair_spec] || "RSA_4096"
+      })
+
+    request(:generate_data_key_pair_without_plaintext, query_params)
   end
 
   @doc "Generate a data key without plaintext"
