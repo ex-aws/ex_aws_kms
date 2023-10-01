@@ -4,7 +4,7 @@ env:
   MIX_ENV: test
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     strategy:
       matrix:
         otp: [23.x, 24.x, 25.x]
