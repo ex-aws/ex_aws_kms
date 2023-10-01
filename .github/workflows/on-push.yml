@@ -17,7 +17,7 @@ jobs:
           - otp: 23.x
             elixir: 1.15.x
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
       - uses: erlef/setup-beam@v1
         with:
           otp-version: ${{matrix.otp}}
@@ -25,7 +25,7 @@ jobs:
       - run: mix deps.get
       - run: mix compile
       - run: mix format --check-formatted
-        if: matrix.elixir == '1.15.x' # Only check formatting with the latest version
+        if: matrix.elixir == '1.15.x' # Only check formatting with the latest verison
       - run: mix dialyzer
         if: matrix.elixir == '1.15.x'
       - run: mix test
