@@ -226,7 +226,7 @@ defmodule ExAws.KMS do
     else
       request(:generate_data_key, query_params)
     end
-          end
+  end
 
   @doc "Generate a data key pair"
   @type generate_data_key_pair_opts :: [

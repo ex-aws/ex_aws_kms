@@ -45,6 +45,7 @@ defmodule ExAws.KMS.Mixfile do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
+      {:dialyxir, "~> 1.0", only: [:dev, :test], runtime: false},
       {:hackney, ">= 0.0.0", only: [:dev, :test]},
       {:poison, ">= 0.0.0", only: [:dev, :test]},
       {:ex_doc, "~> 0.22", only: :dev},

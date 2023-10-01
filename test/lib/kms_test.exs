@@ -346,7 +346,11 @@ defmodule ExAws.KMSTest do
   test "GenerateDataKeyPair" do
     assert %ExAws.Operation.JSON{
              before_request: nil,
-             data: %{"Action" => "GenerateDataKeyPair", "Version" => @version, "KeyId" => "key-id"},
+             data: %{
+               "Action" => "GenerateDataKeyPair",
+               "Version" => @version,
+               "KeyId" => "key-id"
+             },
              headers: [
                {"x-amz-target", "TrentService.GenerateDataKeyPair"},
                {"content-type", "application/x-amz-json-1.0"}
