@@ -1,5 +1,10 @@
 # Changelog for v2.x
 
+## 2.3.0 (2023-10-01)
+
+  * Add `GenerateDataKeyPair` and `GenerateDataKeyPairWithoutPlaintext` operations (#12)
+  * Updated dependencies
+
 ## 2.2.0 (2020-11-15)
 
   * Add `Sign`, `Verify` and `GetPublicKey` operations
