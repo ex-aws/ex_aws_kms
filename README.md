@@ -1,7 +1,11 @@
 # ExAws.KMS
-[![Build Status](https://secure.travis-ci.org/ex-aws/ex_aws_kms.png?branch=master)](https://travis-ci.org/ex-aws/ex_aws_kms)
-[![Hex pm](http://img.shields.io/hexpm/v/ex_aws_kms.svg?style=flat)](https://hex.pm/packages/ex_aws_kms)
-[![API Docs](https://img.shields.io/badge/api-docs-lightgreen.svg?style=flat)](https://hexdocs.pm/ex_aws_kms)
+
+[![CI](https://github.com/ex-aws/ex_aws_kms/workflows/on-push/badge.svg)](https://github.com/ex-aws/ex_aws_kms/actions?query=workflow%3Aon-push)
+[![Module Version](https://img.shields.io/hexpm/v/ex_aws_kms.svg)](https://hex.pm/packages/ex_aws_kms)
+[![Hex Docs](https://img.shields.io/badge/hex-docs-lightgreen.svg)](https://hexdocs.pm/ex_aws_kms/)
+[![Total Download](https://img.shields.io/hexpm/dt/ex_aws_kms.svg)](https://hex.pm/packages/ex_aws_kms)
+[![License](https://img.shields.io/hexpm/l/ex_aws_kms.svg)](https://github.com/ex-aws/ex_aws_kms/blob/master/LICENSE)
+[![Last Updated](https://img.shields.io/github/last-commit/ex-aws/ex_aws_kms.svg)](https://github.com/ex-aws/ex_aws_kms/commits/master)
 
 Service module for [KMS](https://aws.amazon.com/kms/) support in https://github.com/ex-aws/ex_aws
 
