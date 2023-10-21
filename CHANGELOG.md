@@ -1,5 +1,9 @@
 # Changelog for v2.x
 
+## 2.3.1 (2023-10-21)
+
+  * Updated dependencies
+
 ## 2.3.0 (2023-10-01)
 
   * Add `GenerateDataKeyPair` and `GenerateDataKeyPairWithoutPlaintext` operations (#12)

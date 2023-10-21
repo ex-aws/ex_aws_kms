@@ -1,7 +1,8 @@
 defmodule ExAws.KMS.Mixfile do
   use Mix.Project
 
-  @version "2.3.0"
+  @repo "https://github.com/ex-aws/ex_aws_kms"
+  @version "2.3.1"
 
   def project do
     [
@@ -40,7 +41,8 @@ defmodule ExAws.KMS.Mixfile do
       maintainers: ["Artem Kay"],
       licenses: ["MIT"],
       links: %{
-        "GitHub" => "https://github.com/ex-aws/ex_aws_kms"
+        "GitHub" => @repo,
+        "Changelog" => "#{@repo}/blob/master/CHANGELOG.md"
       }
     ]
   end
