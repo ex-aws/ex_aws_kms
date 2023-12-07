@@ -1,5 +1,9 @@
 # Changelog for v2.x
 
+## 2.3.2 (2023-12-06)
+
+  * Updated dependencies
+
 ## 2.3.1 (2023-10-21)
 
   * Updated dependencies
