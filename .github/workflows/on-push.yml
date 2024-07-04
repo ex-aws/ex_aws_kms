@@ -49,15 +49,15 @@ jobs:
               elixir: 1.12.x      
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - uses: erlef/setup-beam@v1
         with:
-          otp-version: ${{matrix.otp}}
-          elixir-version: ${{matrix.elixir}}
+          otp-version: ${{matrix.pair.otp}}
+          elixir-version: ${{matrix.pair.elixir}}
       - run: mix deps.get
       - run: mix compile
       - run: mix format --check-formatted
-        if: matrix.elixir == '1.15.x' # Only check formatting with the latest verison
+        if: matrix.pair.elixir == '1.17.x' # Only check formatting with the latest verison
       - run: mix dialyzer
-        if: matrix.elixir == '1.15.x'
+        if: matrix.pair.elixir == '1.15.x'
       - run: mix test
