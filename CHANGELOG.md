@@ -1,5 +1,10 @@
 # Changelog for v2.x
 
+## 2.4.0 (2024-07-04)
+
+  * Updated dependencies
+  * Dropped Elixir 1.11.x support
+
 ## 2.3.2 (2023-12-06)
 
   * Updated dependencies

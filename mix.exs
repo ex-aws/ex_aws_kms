@@ -2,13 +2,13 @@ defmodule ExAws.KMS.Mixfile do
   use Mix.Project
 
   @repo "https://github.com/ex-aws/ex_aws_kms"
-  @version "2.3.2"
+  @version "2.4.0"
 
   def project do
     [
       app: :ex_aws_kms,
       version: @version,
-      elixir: "~> 1.11",
+      elixir: "~> 1.12",
       elixirc_paths: elixirc_paths(Mix.env()),
       start_permanent: Mix.env() == :prod,
       deps: deps(),
