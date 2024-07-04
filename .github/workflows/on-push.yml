@@ -57,7 +57,7 @@ jobs:
       - run: mix deps.get
       - run: mix compile
       - run: mix format --check-formatted
-        if: matrix.pair.elixir == '1.17.x' # Only check formatting with the latest verison
+        if: matrix.pair.elixir == '1.17.x' # Check formatting only with the latest verison
       - run: mix dialyzer
-        if: matrix.pair.elixir == '1.15.x'
+        if: matrix.pair.elixir == '1.17.x' # Run dialyzer only with the latest verison
       - run: mix test
