@@ -298,11 +298,14 @@ defmodule ExAws.KMS do
       |> Map.merge(%{
         "Action" => "GenerateDataKeyWithoutPlaintext",
         "Version" => @version,
-        "KeyId" => key_id,
-        "KeySpec" => opts[:key_spec] || "AES_256"
+        "KeyId" => key_id
       })
 
-    request(:generate_data_key_without_plaintext, query_params)
+    if !Map.has_key?(query_params, "KeySpec") and !Map.has_key?(query_params, "NumberOfBytes") do
+      request(:generate_data_key_without_plaintext, Map.put(query_params, "KeySpec", "AES_256"))
+    else
+      request(:generate_data_key_without_plaintext, query_params)
+    end
   end
 
   @doc "Generates an unpredictable byte string"
