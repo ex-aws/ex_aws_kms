@@ -1,5 +1,9 @@
 # Changelog for v2.x
 
+## 2.4.1 (2024-08-17)
+
+  * Fixed `GenerateDataKeyWithoutPlaintext` - it now does not send `KeySpec` when sending `NumberOfBytes` (#15)
+
 ## 2.4.0 (2024-07-04)
 
   * Updated dependencies
