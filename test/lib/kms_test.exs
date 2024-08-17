@@ -481,6 +481,36 @@ defmodule ExAws.KMSTest do
                key_spec: "AES_128",
                number_of_bytes: 16
              )
+
+    operation_with_number_of_bytes =
+      ExAws.KMS.generate_data_key_without_plaintext("key-id",
+        encryption_context: %{"key" => "value"},
+        grant_tokens: ["token"],
+        number_of_bytes: 32
+      )
+
+    assert %ExAws.Operation.JSON{
+             before_request: nil,
+             data: %{
+               "Action" => "GenerateDataKeyWithoutPlaintext",
+               "Version" => @version,
+               "KeyId" => "key-id",
+               "EncryptionContext" => %{"key" => "value"},
+               "GrantTokens" => ["token"],
+               "NumberOfBytes" => 32
+             },
+             headers: [
+               {"x-amz-target", "TrentService.GenerateDataKeyWithoutPlaintext"},
+               {"content-type", "application/x-amz-json-1.0"}
+             ],
+             http_method: :post,
+             parser: _,
+             path: "/",
+             service: :kms,
+             stream_builder: nil
+           } = operation_with_number_of_bytes
+
+    refute operation_with_number_of_bytes.data["KeySpec"]
   end
 
   test "GenerateRandom" do
