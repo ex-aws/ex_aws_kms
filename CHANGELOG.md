@@ -1,5 +1,9 @@
 # Changelog for v2.x
 
+## 2.4.2 (2024-10-12)
+
+  * Dropped Elixir 1.12.x support
+
 ## 2.4.1 (2024-08-17)
 
   * Fixed `GenerateDataKeyWithoutPlaintext` - it now does not send `KeySpec` when sending `NumberOfBytes` (#15)

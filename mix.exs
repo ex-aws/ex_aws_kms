@@ -2,13 +2,13 @@ defmodule ExAws.KMS.Mixfile do
   use Mix.Project
 
   @repo "https://github.com/ex-aws/ex_aws_kms"
-  @version "2.4.1"
+  @version "2.4.2"
 
   def project do
     [
       app: :ex_aws_kms,
       version: @version,
-      elixir: "~> 1.12",
+      elixir: "~> 1.13",
       elixirc_paths: elixirc_paths(Mix.env()),
       start_permanent: Mix.env() == :prod,
       deps: deps(),
@@ -50,8 +50,7 @@ defmodule ExAws.KMS.Mixfile do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      # dialyxir 1.4.x requires Elixir ~> 1.12
-      {:dialyxir, "1.3.0", only: [:dev, :test], runtime: false},
+      {:dialyxir, "~> 1.4", only: [:dev, :test], runtime: false},
       {:hackney, ">= 0.0.0", only: [:dev, :test]},
       {:poison, ">= 0.0.0", only: [:dev, :test]},
       {:ex_doc, "~> 0.22", only: :dev},
