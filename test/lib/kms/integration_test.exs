@@ -101,6 +101,13 @@ defmodule ExAws.KMSIntegratinTest do
       assert {:ok, %{"Keys" => _keys}} = ExAws.KMS.list_keys() |> ExAws.request()
     end
 
+    test "ListKeyRotations" do
+      assert {:ok, %{"Rotations" => _rotations, "Truncated" => bool}} =
+               key_id |> ExAws.KMS.list_key_rotations() |> ExAws.request()
+
+      assert is_boolean(bool)
+    end
+
     test "UpdateKeyDescription" do
       description = "ex_aws test key"
       assert {:ok, %{}} = ExAws.KMS.update_key_description(description, key_id) |> ExAws.request()
