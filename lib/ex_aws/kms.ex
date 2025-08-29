@@ -504,6 +504,27 @@ defmodule ExAws.KMS do
     request(:list_keys, query_params)
   end
 
+  @doc "Retrieves a list of all completed key material rotations for a key"
+  @type list_key_rotations_opts :: [
+          {:limit, integer}
+          | {:marker, binary}
+        ]
+  @spec list_key_rotations(key_id :: binary) :: ExAws.Operation.JSON.t()
+  @spec list_key_rotations(key_id :: binary, opts :: list_key_rotations_opts) ::
+          ExAws.Operation.JSON.t()
+  def list_key_rotations(key_id, opts \\ []) when is_list(opts) do
+    query_params =
+      opts
+      |> normalize_opts
+      |> Map.merge(%{
+        "Action" => "ListKeyRotations",
+        "Version" => @version,
+        "KeyId" => key_id
+      })
+
+    request(:list_key_rotations, query_params)
+  end
+
   @doc "A list of all grants for which the grant's RetiringPrincipal matches the one specified"
   @type list_retirable_grants_opts :: [
           {:limit, integer}

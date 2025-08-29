@@ -722,6 +722,22 @@ defmodule ExAws.KMSTest do
            } = ExAws.KMS.list_keys()
   end
 
+  test "ListKeyRotations" do
+    assert %ExAws.Operation.JSON{
+             before_request: nil,
+             data: %{"Action" => "ListKeyRotations", "Version" => @version, "KeyId" => "key-id"},
+             headers: [
+               {"x-amz-target", "TrentService.ListKeyRotations"},
+               {"content-type", "application/x-amz-json-1.0"}
+             ],
+             http_method: :post,
+             parser: _,
+             path: "/",
+             service: :kms,
+             stream_builder: nil
+           } = ExAws.KMS.list_key_rotations("key-id")
+  end
+
   test "ListRetirableGrants" do
     assert %ExAws.Operation.JSON{
              before_request: nil,
