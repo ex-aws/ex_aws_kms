@@ -904,6 +904,22 @@ defmodule ExAws.KMSTest do
            } = ExAws.KMS.revoke_grant("grant-id", "key-id")
   end
 
+  test "RotateKeyOnDemand" do
+    assert %ExAws.Operation.JSON{
+             before_request: nil,
+             data: %{"Action" => "RotateKeyOnDemand", "Version" => @version, "KeyId" => "key-id"},
+             headers: [
+               {"x-amz-target", "TrentService.RotateKeyOnDemand"},
+               {"content-type", "application/x-amz-json-1.0"}
+             ],
+             http_method: :post,
+             parser: _,
+             path: "/",
+             service: :kms,
+             stream_builder: nil
+           } = ExAws.KMS.rotate_key_on_demand("key-id")
+  end
+
   test "ScheduleKeyDeletion" do
     assert %ExAws.Operation.JSON{
              before_request: nil,

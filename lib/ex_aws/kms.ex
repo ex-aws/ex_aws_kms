@@ -654,6 +654,18 @@ defmodule ExAws.KMS do
     request(:revoke_grant, query_params)
   end
 
+  @doc "Rotates key material opf a key"
+  @spec rotate_key_on_demand(key_id :: binary) :: ExAws.Operation.JSON.t()
+  def rotate_key_on_demand(key_id) do
+    query_params = %{
+      "Action" => "RotateKeyOnDemand",
+      "Version" => @version,
+      "KeyId" => key_id
+    }
+
+    request(:rotate_key_on_demand, query_params)
+  end
+
   @doc "Schedules the deletion of CMK"
   @spec schedule_key_deletion(key_id :: binary) :: ExAws.Operation.JSON.t()
   @spec schedule_key_deletion(key_id :: binary, pending_windows_in_days :: integer) ::

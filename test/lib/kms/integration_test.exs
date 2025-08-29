@@ -76,6 +76,11 @@ defmodule ExAws.KMSIntegratinTest do
       assert is_boolean(bool)
     end
 
+    test "RotateKeyOnDemand" do
+      assert {:ok, %{"KeyId" => _}} =
+               key_id |> ExAws.KMS.rotate_key_on_demand() |> ExAws.request()
+    end
+
     test "ListAliases" do
       assert {:ok, %{"Aliases" => _, "Truncated" => bool}} =
                ExAws.KMS.list_aliases() |> ExAws.request()
