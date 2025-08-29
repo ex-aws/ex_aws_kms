@@ -169,11 +169,15 @@ defmodule ExAws.KMS do
 
   @doc "Enable a key rotation"
   @spec enable_key_rotation(key_id :: binary) :: ExAws.Operation.JSON.t()
-  def enable_key_rotation(key_id) do
+  @spec enable_key_rotation(key_id :: binary, rotation_period_in_days :: integer) ::
+          ExAws.Operation.JSON.t()
+  def enable_key_rotation(key_id, rotation_period_in_days \\ 365)
+      when rotation_period_in_days >= 90 and rotation_period_in_days <= 2560 do
     query_params = %{
       "Action" => "EnableKeyRotation",
       "Version" => @version,
-      "KeyId" => key_id
+      "KeyId" => key_id,
+      "RotationPeriodInDays" => rotation_period_in_days
     }
 
     request(:enable_key_rotation, query_params)
