@@ -1,5 +1,11 @@
 # Changelog for v2.x
 
+## 2.5.0 (2025-08-31)
+
+  * Allow passing rotation period when enabling key rotation (#16)
+  * Add `ListKeyRotations` operation (#17)
+  * Add `RotateKeyOnDemand` operation (#18)
+
 ## 2.4.2 (2024-10-12)
 
   * Dropped Elixir 1.12.x support

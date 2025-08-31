@@ -2,7 +2,7 @@ defmodule ExAws.KMS.Mixfile do
   use Mix.Project
 
   @repo "https://github.com/ex-aws/ex_aws_kms"
-  @version "2.4.2"
+  @version "2.5.0"
 
   def project do
     [
