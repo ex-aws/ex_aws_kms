@@ -4,10 +4,16 @@ env:
   MIX_ENV: test
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-24.04
     strategy:
       matrix:
         include:
+          - pair:
+              otp: 28.x
+              elixir: 1.18.x             
+          - pair:
+              otp: 27.x
+              elixir: 1.18.x          
           - pair:
               otp: 27.x
               elixir: 1.17.x
@@ -51,7 +57,7 @@ jobs:
       - run: mix deps.get
       - run: mix compile
       - run: mix format --check-formatted
-        if: matrix.pair.elixir == '1.17.x' # Check formatting only with the latest verison
+        if: matrix.pair.elixir == '1.18.x' # Check formatting only with the latest verison
       - run: mix dialyzer
-        if: matrix.pair.elixir == '1.17.x' # Run dialyzer only with the latest verison
+        if: matrix.pair.elixir == '1.18.x' # Run dialyzer only with the latest verison
       - run: mix test
