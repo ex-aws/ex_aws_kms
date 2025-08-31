@@ -1,4 +1,4 @@
-defmodule ExAws.KMSIntegratinTest do
+defmodule ExAws.KMSIntegrationTest do
   use ExUnit.Case, async: true
 
   if System.get_env("TEST_EX_AWS_KEY_ARN") do
