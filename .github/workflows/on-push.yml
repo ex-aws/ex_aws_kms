@@ -8,9 +8,10 @@ jobs:
     strategy:
       matrix:
         include:
-          - pair:
-              otp: 28.x
-              elixir: 1.18.x             
+          # ex_aws does not support OTP 28.x yet
+          # - pair:
+          #     otp: 28.x
+          #     elixir: 1.18.x             
           - pair:
               otp: 27.x
               elixir: 1.18.x          
