@@ -8,40 +8,33 @@ jobs:
     strategy:
       matrix:
         include:
-          # ex_aws does not support OTP 28.x yet
-          # - pair:
-          #     otp: 28.x
-          #     elixir: 1.18.x             
           - pair:
-              otp: 27.x
-              elixir: 1.18.x          
+              otp: "28"
+              elixir: "1.19"
+              lint: lint
           - pair:
-              otp: 27.x
-              elixir: 1.17.x
+              otp: "27"
+              elixir: "1.19"
+
           - pair:
-              otp: 26.x
-              elixir: 1.16.x
+              otp: "28"
+              elixir: "1.18"
           - pair:
-              otp: 26.x
-              elixir: 1.15.x
+              otp: "27"
+              elixir: "1.18"
           - pair:
-              otp: 25.x
-              elixir: 1.15.x
+              otp: "27"
+              elixir: "1.17"
+
           - pair:
-              otp: 25.x
-              elixir: 1.14.x
+              otp: "26"
+              elixir: "1.17"
           - pair:
-              otp: 25.x
-              elixir: 1.13.x
+              otp: "26"
+              elixir: "1.16"
           - pair:
-              otp: 24.x
-              elixir: 1.15.x
-          - pair:
-              otp: 24.x
-              elixir: 1.14.x
-          - pair:
-              otp: 24.x
-              elixir: 1.13.x
+              otp: "26"
+              elixir: "1.15"
 
     steps:
       - uses: actions/checkout@v4
@@ -52,7 +45,7 @@ jobs:
       - run: mix deps.get
       - run: mix compile
       - run: mix format --check-formatted
-        if: matrix.pair.elixir == '1.18.x' # Check formatting only with the latest verison
+        if: matrix.pair.elixir == '1.19.x' # Check formatting only with the latest verison
       - run: mix dialyzer
-        if: matrix.pair.elixir == '1.18.x' # Run dialyzer only with the latest verison
+        if: matrix.pair.elixir == '1.19.x' # Run dialyzer only with the latest verison
       - run: mix test

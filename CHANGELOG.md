@@ -1,5 +1,10 @@
 # Changelog for v2.x
 
+## 2.6.0 (2026-05-11)
+
+  * Updated dependencies
+  * Dropped Elixir 1.13.x & 1.14.x support
+
 ## 2.5.0 (2025-08-31)
 
   * Allow passing rotation period when enabling key rotation (#16)
