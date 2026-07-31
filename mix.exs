@@ -52,7 +52,7 @@ defmodule ExAws.KMS.Mixfile do
     [
       {:dialyxir, "~> 1.4", only: [:dev, :test], runtime: false},
       {:hackney, ">= 0.0.0", only: [:dev, :test]},
-      {:poison, ">= 0.0.0", only: [:dev, :test]},
+      {:jason, ">= 0.0.0", only: [:dev, :test]},
       {:ex_doc, "~> 0.22", only: :dev},
       ex_aws()
     ]
